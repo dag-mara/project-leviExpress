@@ -3,11 +3,18 @@ import Seat from "../Seat";
 import './style.css';
 
 
-const SeatRow = ({row}) => {
+const SeatRow = ({row, rowSelectedSeat}) => {
+    
     return (
         <div className="seat-row">
-            {row.map((sedadlo => 
-                <Seat key={sedadlo.number} number={sedadlo.number} isOccupied={sedadlo.isOccupied}/>
+            {row.map((sedadlo =>  {
+             
+                return(
+                    <Seat key={sedadlo.number} number={sedadlo.number} isOccupied={sedadlo.isOccupied} isSelected={sedadlo.number == rowSelectedSeat ? 'true' : 'false'}/>
+
+                )
+            }
+                
             ))}
         </div>
     )
