@@ -3,7 +3,6 @@ import './style.css';
 import BusStop from "../BusStop";
 
 const JourneyDetail = ({journey}) => {
-    console.log(journey.stops);
 
     return(
         <>

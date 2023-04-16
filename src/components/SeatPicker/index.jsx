@@ -2,7 +2,7 @@ import React from "react";
 import './style.css';
 import SeatRow from "../SeatRow";
 
-const SeatPicker = ({seats, journeyId, selectedSeat}) => {
+const SeatPicker = ({seats, journeyId, selectedSeat, onSeatSelected}) => {
 
     return(
         <div className="seat-picker container">
@@ -10,7 +10,7 @@ const SeatPicker = ({seats, journeyId, selectedSeat}) => {
         <div className="seats">
         {seats.map((seatRow, index) => {
             return(     
-                <SeatRow key={index} row={seatRow} rowSelectedSeat={selectedSeat}/>
+                <SeatRow key={index} row={seatRow} rowSelectedSeat={selectedSeat} onSeatSelected={onSeatSelected}/>
             )
         })}
         </div>

@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { JourneyPicker } from '../JourneyPicker';
 import JourneyDetail from '../JourneyDetail';
 import './style.css';
 import SeatPicker from '../SeatPicker';
-import Seat from '../Seat';
 
 
 export const Home = () => {
-  const [journey, setJourney] = useState('');  
+  const [journey, setJourney] = useState(''); 
+  const [userSeat, setUserSeat] = useState('');
   
   const handleJourneyChange = (journey) => {
     setJourney(journey);
   }
   const navigate = useNavigate();
-  
-  console.log(journey);
 
   const handleBuy = () => {
      fetch('https://apps.kodim.cz/daweb/leviexpress/api/reservation', {
@@ -25,7 +23,7 @@ export const Home = () => {
         },
         body: JSON.stringify({
           action: 'create',
-          seat: journey.autoSeat,
+          seat: userSeat,
           journeyId: journey.journeyId,
         }),
       })
@@ -33,8 +31,10 @@ export const Home = () => {
       .then(data => 
         navigate(`/reservation/${data?.results.reservationId}`)
       )
-      console.log(journey)
   }
+
+  console.log(journey);
+  console.log('userSeat = ' + userSeat);
 
   return(
   <main>
@@ -42,7 +42,7 @@ export const Home = () => {
     {journey? 
     <>
       <JourneyDetail journey={journey}/> 
-      <SeatPicker journeyId={journey.journeyId} seats={journey.seats} selectedSeat={journey.autoSeat}/>
+      <SeatPicker journeyId={journey.journeyId} seats={journey.seats} selectedSeat={userSeat} onSeatSelected={setUserSeat}/>
       <div className="controls container">
         <button className="btn btn--big" type="button" onClick={handleBuy}>Rezervovat</button>
       </div>
