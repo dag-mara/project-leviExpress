@@ -1,3 +1,1 @@
-# leviexpress-starter
-
-A skeleton of the LeviExpress frontend
+Levi Express App
