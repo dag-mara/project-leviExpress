@@ -56,4 +56,11 @@
   .seat:not(.seat--occupied):hover .seat__text {
     fill: white;
   }
+
+  @media  screen and (max-width: 550px) {
+    .seat{
+      width: 2rem;
+      height: 2rem;
+    }
+  }
   

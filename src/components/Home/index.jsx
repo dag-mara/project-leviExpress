@@ -33,9 +33,6 @@ export const Home = () => {
       )
   }
 
-  console.log(journey);
-  console.log('userSeat = ' + userSeat);
-
   return(
   <main>
     <JourneyPicker onJourneyChange={handleJourneyChange}/>

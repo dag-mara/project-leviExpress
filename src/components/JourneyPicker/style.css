@@ -34,4 +34,11 @@
 .journey-picker__map {
   width: 26rem;
   height: auto;
+  max-width: 100%;
+}
+
+@media screen  and (max-width: 640px) {
+  .journey-picker__body {
+    flex-direction: column;
+  }
 }

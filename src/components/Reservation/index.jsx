@@ -13,8 +13,6 @@ const Reservation = () => {
         .then(data => setReservation(data?.results));
     },[]);
 
-    console.log(reservation);
-
     return (
         <div className="reservation container">
             <h2>{`Vaše e-jízdenka č. ${reservation.reservationId}`}</h2>
