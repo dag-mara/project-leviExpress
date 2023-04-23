@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const CityOptions = () => {
     const [cities, setCities] = useState('');
-    /* console.log(cities); */
 
     fetch('https://apps.kodim.cz/daweb/leviexpress/api/cities')
     .then(response => response.json())
